@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="stylesheet" href="index.css">
+</head>
+
+<body>
+    
+</body>
+</html>
+
+<form action="/save" method="post" enctype="multipart/form-data">
+    <input type="text" name="MaSP" id="MaSP" placeholder="Nhap ma sp.." />
+    <br>
+    <input type="text" name="TenSP" id="TenSP" placeholder="Nhap ten sp.." />
+    <br>
+    <input type="file" name="HinhAnh" id="HinhAnh" accept="image/*" />
+    <br>
+    <input type="text" name="SoLuong" id="SoLuong" placeholder="Nhap so luong.." />
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/delete" method="post" enctype="multipart/form-data">
+    <table border="true">
+        <tr>
+            <th>Ma SP</th>
+            <th>Ten SP</th>
+            <th>So Luong</th>
+            <th>Hinh Anh</th>
+            <th>Chon</th>
+        </tr>
+        <% for(let i = 0; i<data.length; i++){%>
+            <tr>
+                <td>
+                    <%=data[i].MaSP%>
+                </td>
+                <td>
+                    <%=data[i].TenSP%>
+                </td>
+                <td>
+                    <%=data[i].SoLuong%>
+                </td>
+                <td>
+                    <img src="<%=data[i].HinhAnh %>" alt="avt_<%=data[i].MaSP%>" width="48" height="48" />
+                </td>
+                <td>
+                    <input type="checkbox" name="<%=data[i].MaSP%>" id="<%=data[i].MaSP%>"/>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+    <input type="submit" value="Xoa">
+</form>
+
